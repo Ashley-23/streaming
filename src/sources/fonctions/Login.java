@@ -1,6 +1,8 @@
 
 package sources.fonctions;
 
+import sources.classes.Inscription;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,8 +18,10 @@ public class Login {
     private JLabel mdpLabel;
     private JTextField nomField;
     private JPasswordField mdpField;
+    private JLabel inscriptionLabel;
     private JButton valider;
     private JButton annuler;
+    private JButton inscription;
 
     public Login() {
         int longueur = 600;
@@ -32,7 +36,7 @@ public class Login {
         icon = new ImageIcon(resizedImage);
 
         label = new JLabel(icon);
-        nomLabel = new JLabel("Nom ");
+        nomLabel = new JLabel("Login ");
         nomLabel.setFont(new Font("Arial", Font.PLAIN, 24));
         nomLabel.setForeground(Color.WHITE);
 
@@ -40,11 +44,16 @@ public class Login {
         mdpLabel.setFont(new Font("Arial", Font.PLAIN, 24));
         mdpLabel.setForeground(Color.WHITE);
 
+        inscriptionLabel = new JLabel(" Vous n'avez pas de compte ? ");
+        inscriptionLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        inscriptionLabel.setForeground(Color.GRAY);
+
 
         nomField = new JTextField();
         mdpField = new JPasswordField();
         valider = new JButton("Valider");
         annuler = new JButton("Annuler");
+        inscription = new JButton("Inscription");
 
         frame = new JFrame("Connexion");
         frame.setLayout(null);
@@ -54,8 +63,12 @@ public class Login {
 
         nomLabel.setBounds(200, 200, 80, 25);
         nomField.setBounds(400, 200, 150, 25);
+
         mdpLabel.setBounds(200, 300, 200, 25);
         mdpField.setBounds(400, 300, 150, 25);
+
+        inscriptionLabel.setBounds(200, 430, 300, 25);
+
 
 
         valider.setFont(new Font("Arial", Font.BOLD, 20));
@@ -84,6 +97,17 @@ public class Login {
             }
         });
 
+        inscription.setFont(new Font("Arial", Font.BOLD, 20));
+        inscription.setBounds(480, 430, 150, 25);
+        inscription.setForeground(Color.BLUE);
+        inscription.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Inscription inscription = new Inscription();
+            }
+        });
+
 
 
 
@@ -94,7 +118,10 @@ public class Login {
         frame.add(mdpField);
         frame.add(valider);
         frame.add(annuler);
+        frame.add(inscriptionLabel);
+        frame.add(inscription);
         frame.add(label);
+
 
         frame.setSize(largeur, longueur);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

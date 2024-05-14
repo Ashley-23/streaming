@@ -1,5 +1,6 @@
 import sources.fonctions.Accueil;
 import sources.fonctions.ImportImage;
+import sources.fonctions.Login;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -16,7 +17,9 @@ public class Main {
         }
 //            ImportImage image = new ImportImage();
 
-        Accueil accueil = new Accueil();
+//        Accueil accueil = new Accueil();
+
+        Login login = new Login();
 
 
     }

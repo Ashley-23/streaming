@@ -1,7 +1,11 @@
-
 package sources.fonctions;
 
+//public class Login2 {
+//}
+
+
 import sources.classes.Inscription;
+import sources.classes.Utilisateur;
 import sources.fichiers.VerifConnexion;
 
 import javax.swing.*;
@@ -10,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-public class Login {
+public class Login2 {
 
     private JFrame frame;
     private ImageIcon icon;
@@ -25,7 +29,7 @@ public class Login {
     private JButton annuler;
     private JButton inscription;
 
-    public Login() {
+    public Login2( Utilisateur utilisateur ) {
         int longueur = 600;
         int largeur = 800;
 
@@ -79,6 +83,24 @@ public class Login {
         valider.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+//                if(nomField.getText().isEmpty() || mdpField.getText().isEmpty()) {
+//                    JOptionPane.showMessageDialog(null, "Veuillez renseigner tous les champs");
+//                } else {
+//                    if(nomField.getText().equals(utilisateur.login) && mdpField.getText().equals(utilisateur.mot_de_passe)) {
+//                        //on se connecte
+//                        frame.dispose();
+//                        Dashboard dashboard = new Dashboard(utilisateur);
+//                    }else if(!nomField.getText().equals(utilisateur.login)) {
+//                        JOptionPane.showMessageDialog(null, "Nom d'utilisateur n'existe pas !");
+//                        nomField.setText("");
+//                        mdpField.setText("");
+//                    }else if(!mdpField.getText().equals(utilisateur.login)) {
+//                        JOptionPane.showMessageDialog(null, " Le mot de passe n'est pas correct !");
+//                        mdpField.setText("");
+//                    }
+//                }
+
                 VerifConnexion verifConnexion = new VerifConnexion(nomField.getText(), mdpField.getText());
             }
         });
@@ -127,6 +149,14 @@ public class Login {
 
     public static void main(String[] args) {
 
-        new Login();
+        Utilisateur user = new Utilisateur();
+        user.login = "Ashley-23";
+        user.mot_de_passe = "password";
+        new Login2(user);
     }
 }
+
+
+
+
+

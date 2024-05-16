@@ -64,11 +64,11 @@ public class Dashboard {
         };
 
 
-        login_label = new JLabel("OUPS                  tEST");
+        login_label = new JLabel(user.login.toUpperCase());
         login_label.setFont(new Font("Arial", Font.BOLD, 20));
         login_label.setForeground(Color.RED);
 
-        login_label2 = new JLabel("OUPS    OUPS ");
+        login_label2 = new JLabel("USERNAME ");
         login_label2.setFont(new Font("Arial", Font.BOLD, 20));
         login_label2.setForeground(Color.RED);
 
@@ -178,6 +178,7 @@ public class Dashboard {
 
     public static void main(String[] args) {
         Utilisateur user = new Utilisateur();
+        user.login = " utilisateur ";
         new Dashboard(user);
     }
 }
